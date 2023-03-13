@@ -1,0 +1,45 @@
+.nav-link{
+    margin-left: 150px;
+}
+
+input[type=button] {
+    background-color: #1DA1F2;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    cursor: pointer;
+    margin-left :450px;
+    margin-bottom: 200px;
+  }
+.navbar-brand{
+    font-size: 150px;
+}
+.form{
+width: 949px;
+height: 400px;
+
+text-align: center;
+margin: 50px 200px 200px 200px;}
+table{
+     
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        text-align: center;
+    }
+    
+    table th {
+        background-color: #b9b9b9;
+        color: #000000;
+        font-weight: bold;
+        padding: 10px;
+    }
+    
+    table td {
+        border: 1px solid #b9b9b9;
+        padding: 10px;
+    }
+    
+    table tr:nth-child(even) {
+        background-color: #e6e6e6;
+    }
