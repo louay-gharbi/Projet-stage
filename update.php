@@ -1,6 +1,7 @@
 <?php
 // Include the database connection file
 require_once 'db_connect.php';
+session_start();
 
 // Check if the ID parameter is set
 if(isset($_GET['id'])) {
@@ -95,6 +96,7 @@ if(isset($_GET['id'])) {
   } else {
     // If no record is found with the specified ID, redirect to the homepage
     header("Location: index.php");
+    $_SESSION['reload'] ="add_formation";
     exit();
   }
 }

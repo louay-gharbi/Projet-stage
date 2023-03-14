@@ -1,7 +1,7 @@
 <?php
 //import the connection file
 require_once 'db_connect.php';
-
+require_once 'functions.php';
 session_start();
 
 
@@ -21,6 +21,8 @@ if ($connection->exec($sql)) {
     $_SESSION['M'] = ":(";
   }
   header("Location: admin_Dashboard.php");
+  $_SESSION['reload'] ="add_admin";
+  $_SESSION['authenticated']=true;
 }
 
 

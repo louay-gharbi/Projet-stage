@@ -2,6 +2,11 @@
 //import the connection file
 require_once 'db_connect.php';
 session_start();
+// Check if user is authenticated
+if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
+  header('Location: admin.php');
+  exit;
+}
 if (isset($_SESSION['reload'])) {
   echo"    <script src='jsfunctions.js'></script>";
   echo "<script>window.onload = function() {
@@ -65,6 +70,8 @@ if (isset($_SESSION['reload'])) {
       }
 }
 unset($_SESSION['message']);
+
+
 ?>
 
 <!-- different forms -->
@@ -119,10 +126,10 @@ unset($_SESSION['message']);
 
 
 </form>
-<form action="add_photo.php" class="form" id="add_photo" style="display:none">
+<form action="add_photo.php" method="post" class="form" id="add_photo" style="display:none" enctype="multipart/form-data">
 <h1>ajouter une photo</h1>
-        <input type="file" name="photo" class="form-input" required>
-        <input type="submit" value="Upload photo" class="form-submit-button">
+        <input type="file" name="image" class="form-input" required>
+        <input type="submit" value="Upload photo" class="form-submit-button" name="submit">
 </form>
 <div class="form" id="liste_inscrit" style="display:none">
     <h2>liste des inscription</h2>
@@ -209,3 +216,6 @@ a{
 </body>
 
 </html>
+<?php
+unset( $_SESSION['authenticated']);
+?>

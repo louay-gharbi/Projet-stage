@@ -1,6 +1,7 @@
 <?php
 //import the connection file
 require_once 'db_connect.php';
+session_start();
 
 // Check if the form was submitted
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -38,7 +39,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $result=$query->execute();
 if($result){
     // Redirect to a success page
+    $_SESSION['authenticated']=true;
     header('Location: admin_Dashboard.php');
+    $_SESSION['reload'] ="add_formation";
+
+    
     exit();
   } else {
     // Handle the error

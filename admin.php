@@ -34,6 +34,7 @@
 require_once 'db_connect.php';
 
 //admin authentication
+session_start();
 
 
   
@@ -57,6 +58,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
          
         if(($user['username'] == $username) && password_verify($password, $user['password'])) {
                 header("location: admin_Dashboard.php");
+                $_SESSION['authenticated']=true;
         }
         else {
            

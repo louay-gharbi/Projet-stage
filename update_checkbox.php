@@ -16,6 +16,7 @@ if($_GET['id']){
   if($result) {
     // If the update is successful, redirect to the homepage
     $_SESSION['reload'] ="liste_inscrit";
+    $_SESSION['authenticated']=true;
     header("location: admin_Dashboard.php");
   
 

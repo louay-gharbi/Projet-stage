@@ -1,10 +1,13 @@
 <?php
 //import the connection file
 require_once 'db_connect.php';
-
+session_start();
+$_SESSION['reload'] ="add_formation";
+$_SESSION['authenticated']=true;
 if (!isset($_GET['id'])) {
     
     header('Location: index.php');
+    
     exit;
 }
 
@@ -21,6 +24,7 @@ $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
     if ($query->rowCount() > 0) {
         // if yes, redirect to the index page or show a success message
         header('Location: admin_Dashboard.php');
+        
         exit;
     } else {
         // if not, redirect to the index page or show an error message
